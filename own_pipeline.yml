@@ -1,0 +1,24 @@
+version: 1
+process_count: 2
+timeout: 0.1
+logger:
+  level: INFO
+
+pipeline:
+  - normalizer:       
+      type: normalizer
+      specific_rules:
+        - /home/user/ownpipe/normalizer/specific/
+      generic_rules:
+        - /home/user/ownpipe/normalizer/generic/
+      regex_mapping: /home/user/ownpipe/normalizer/normalizer_regex_mapping.yml
+        
+input:
+  authjson:
+    type: rawstringl_input
+    documents_path: /var/log/auth.log
+
+output:
+  authjson:
+    type: console_output
+
