@@ -1,0 +1,4 @@
+filter: "message"
+dissector:
+  mapping:      
+    message: "%{timestamp} %{+(\ )timestamp} %{+(\ )timestamp} %{hostname} su: %{su_event} %{+(\ )su_event} (to %{attempted_user}) %{user} %{} %{}"
