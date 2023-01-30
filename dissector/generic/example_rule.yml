@@ -1,5 +1,5 @@
 filter: "message"
 dissector:
   mapping:      
-    message: "%{timestamp}  %{+(\ )timestamp} %{+(\ )timestamp} %{username} %{process}: %{event}"
+    message: "%{timestamp} %{+(\ )timestamp} %{+(\ )timestamp} %{hostname} %{process}: %{event}"
 

@@ -8,21 +8,22 @@ pipeline:
   - dissector:
       type: dissector
       specific_rules:
-        - ownpipe/dissector/specific
+        - /opt/ownpipe/dissector/specific
       generic_rules:
-        - ownpipe/dissector/generic/
+        - /opt/ownpipe/dissector/generic/
   - normalizer:       
       type: normalizer
       specific_rules:
-        - ownpipe/normalizer/specific/
+        - /opt/ownpipe/normalizer/specific/
       generic_rules:
-        - ownpipe/normalizer/generic/
-      regex_mapping: ownpipe/normalizer/regex_mapping.yml
+        - /opt/ownpipe/normalizer/generic/
+      regex_mapping: /opt/ownpipe/normalizer/regex_mapping.yml
         
 input:
   authjson:
     type: file_input
-    logfile_path: /var/log/auth.log.1
+    logfile_path: /var/log/auth.log
+    interval: 1
 
 output:
   authjson:

@@ -1,0 +1,4 @@
+filter: "message"
+dissector:
+  mapping:      
+    message: "%{timestamp} %{+(\ )timestamp} %{+(\ )timestamp} %{hostname} sshd[%{}]: %{sshd_event} %{+(\ )sshd_event} by authenticating user %{user} %{remotehost} %{} %{} %{sshd_status}"
