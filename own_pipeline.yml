@@ -5,18 +5,24 @@ logger:
   level: INFO
 
 pipeline:
+  - dissector:
+      type: dissector
+      specific_rules:
+        - ownpipe/dissector/specific
+      generic_rules:
+        - ownpipe/dissector/generic/
   - normalizer:       
       type: normalizer
       specific_rules:
-        - /home/user/ownpipe/normalizer/specific/
+        - ownpipe/normalizer/specific/
       generic_rules:
-        - /home/user/ownpipe/normalizer/generic/
-      regex_mapping: /home/user/ownpipe/normalizer/normalizer_regex_mapping.yml
+        - ownpipe/normalizer/generic/
+      regex_mapping: ownpipe/normalizer/regex_mapping.yml
         
 input:
   authjson:
-    type: rawstringl_input
-    documents_path: /var/log/auth.log
+    type: file_input
+    logfile_path: /var/log/auth.log.1
 
 output:
   authjson:
